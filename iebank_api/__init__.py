@@ -26,7 +26,17 @@ else:
 db = SQLAlchemy(app)
 
 from iebank_api.models import Account
-db.create_all()
+
+with app.app_context():
+    db.create_all()
 CORS(app)
 
 from iebank_api import routes
+
+
+if (os.getenv('ENV') == 'dev'):
+    appinsights = AppInsights(app)
+    @app.after_request
+    def after_request(response):
+        appinsights.flush()
+        return response

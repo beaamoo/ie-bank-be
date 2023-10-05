@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../ie-bank-fe"
+		},
+		{
+			"path": "../ie-bank-infra"
+		}
+	],
+	"settings": {}
+}
