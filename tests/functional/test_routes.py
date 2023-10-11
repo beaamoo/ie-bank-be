@@ -28,5 +28,3 @@ def test_create_account(testing_client):
     """
     response = testing_client.post('/accounts', json={'name': 'John Doe', 'currency': '€'})
     assert response.status_code == 200
-
-
