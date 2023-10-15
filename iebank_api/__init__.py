@@ -25,6 +25,7 @@ elif os.getenv("ENV") == "uat":
 else:
     print("Running in production mode")
     app.config.from_object("config.ProductionConfig")
+
 db = SQLAlchemy(app)
 
 from iebank_api.models import Account
@@ -38,6 +39,7 @@ from iebank_api import routes
 # Initialize Application Insights and force flushing application insights handler after each request
 if os.getenv("ENV") == "dev" or os.getenv("ENV") == "uat":
     appinsights = AppInsights(app)
+
     @app.after_request
     def after_request(response):
         appinsights.flush()
