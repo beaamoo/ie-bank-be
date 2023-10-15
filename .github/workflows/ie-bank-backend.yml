@@ -100,5 +100,3 @@ jobs:
         with:
           app-name: ${{ env.BACKEND_WEBAPP_UAT }}
           package: .
-
-    
